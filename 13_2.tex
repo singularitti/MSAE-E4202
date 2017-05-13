@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=0.3, domain=-3:3]
+	% axis
+	\draw [-{>[scale=2.5,
+			length=2,
+			width=3]}] (0,0) -- (0,1);
+	\draw (0,0) -- (1,0);
+	\draw [-{>[scale=2.5,
+			length=2,
+			width=3]}] (1,0) -- (1,1);
+
+	% curve
+  \draw plot (\x, 0.15*\x^4+.5*\x^3-\x+0.5);
+\end{tikzpicture}

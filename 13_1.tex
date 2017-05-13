@@ -1,0 +1,37 @@
+\begin{tikzpicture}[scale=3, font=\footnotesize]
+	% axis
+	\draw [-{>[scale=2.5,
+    length=2,
+    width=3]}] (0,0) -- (0,1);
+	\draw (0,0) -- (1,0);
+	\draw [-{>[scale=2.5,
+    length=2,
+    width=3]}] (1,0) -- (1,1);
+
+	% curve
+	\coordinate (A) at (0.1,0.2);
+	\coordinate (B) at (0.9,0.2);
+	\draw (A) parabola[bend pos=0.5] bend +(0,0.4) (B);
+
+	% line
+	\coordinate (xb') at (0.4,0);
+	\coordinate (TL) at (0,0.25);
+	\coordinate (TH) at (0, 0.7);
+	\draw[dashed] (TL) -| (xb');
+	\draw[dashed] (TH) -- ($ (xb') + (TH) $);
+
+	% arrow
+	\draw[->, thick] ($ (xb') + (TH) $) -- ($ (xb') + (TL) $);
+
+	% point
+	\draw[fill=black] ($ (xb') + (TH) $) circle[radius=0.2pt];
+
+	% text
+	\draw (TH) node[anchor=east] {$T_H$};
+	\draw (TL) node[anchor=east] {$T_L$};
+	\draw (0.6,0.45) node[anchor=north] {$\alpha'+\alpha''$};
+	\draw (0.6,0.8) node[anchor=north] {$\alpha$};
+	\draw (xb') node[anchor=north] {$x_B'$};
+	\draw (0,0) node[anchor=north] {$A$};
+	\draw (1,0) node[anchor=north] {$B$};
+\end{tikzpicture}

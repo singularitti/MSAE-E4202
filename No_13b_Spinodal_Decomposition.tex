@@ -1,0 +1,64 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8
+% !BIB program = bibtex
+% !TEX spellcheck = en_US
+\documentclass[12pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newpxtext,newpxmath}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage[version=4]{mhchem}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usepackage{relsize}
+\tikzset{fontscale/.style = {font=\relscale{#1}}
+}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+
+\title{Spinodal Decomposition}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+Consider a binary alloy system with a miscibility gap,
+i.e.,
+\begin{figure}[h]
+	\begin{minipage}[l]{4cm}
+		\input{13_1}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[r]{\textwidth-4cm}
+		now, consider a transformation which must occur when an alloy
+		with composition $x_B'$ is quenched from temperature $T_H$
+		to a lower temperature $T_L$', i.e.,
+		\ce{$\alpha$ -> $\alpha' + \alpha''$}.
+	\end{minipage}
+\end{figure}
+
+In order to properly deal with the transformation, we need to analyze,
+not surprisingly, the $G_{\text{sol}}$ vs composition relation at the
+transformation temperature $T_L$!
+
+I.e.,
+\begin{figure}[h]
+  \begin{minipage}[l]{4cm}
+    \input{13_2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[r]{\textwidth-4cm}
+    now, consider a transformation which must occur when an alloy
+    with composition $x_B'$ is quenched from temperature $T_H$
+    to a lower temperature $T_L$', i.e.,
+    \ce{$\alpha$ -> $\alpha' + \alpha''$}.
+  \end{minipage}
+\end{figure}
+
+\end{document}
