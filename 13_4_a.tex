@@ -1,0 +1,39 @@
+\begin{tikzpicture}[scale=3, font=\scriptsize]
+	% axis
+	\draw [-{>[scale=2,
+			length=2,
+			width=3]}] (0,0) -- (0,1);
+	\draw[-{>[scale=2,
+			length=2,
+			width=3]}] (0,0) -- (2,0);
+
+	% curve
+	\begin{scope}[xscale=2.2, yshift=-0.1cm]
+		\foreach \theta / \l in {0/0, 60/1, 70/1.75, 80/2.5}
+		\draw (0.1,0.5) to [out=\theta, in=180-\theta, looseness=\l] (0.3,0.5)
+		to [out=-\theta, in=\theta-180, looseness=\l] (0.5,0.5)
+		to [out=\theta, in=180-\theta, looseness=\l] (0.7,0.5);
+	\end{scope}
+
+	\begin{scope}[yshift=-0.1cm]
+  % line
+  \draw[dashed] (0,0.5) -- (1.8,0.5);
+  
+  % node
+  \draw (0,0.5) node[anchor=east] {$c_0$};
+  \draw (2.2*0.65,0.45) node (c0) {};
+  \draw (2.2*0.62,0.5) node (c1) {};
+  \draw (2.2*0.59,0.55) node (c2) {};
+  \draw (2.2*0.55,0.57) node (c3) {};
+  \draw (1.9,0.55) node (t0) {$t_0$};
+  \draw (1.75,0.7) node (t1) {$t_1$};
+  \draw (1.6,0.85) node (t2) {$t_2$};
+  \draw (1.45,1.0) node (t3) {$t_3$};
+  
+  % reference
+  \path[->] (t0.west) edge [out=150, in=110] (c0.north);
+  \path[->] (t1.west) edge [out=150, in=110] (c1.north);
+  \path[->] (t2.west) edge [out=150, in=110] (c2.north);
+  \path[->] (t3.west) edge [out=150, in=110] (c3.north);
+  \end{scope}
+\end{tikzpicture}
