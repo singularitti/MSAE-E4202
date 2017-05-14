@@ -15,11 +15,20 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
 \usepackage{relsize}
 \tikzset{fontscale/.style = {font=\relscale{#1}}
 }
 \usepackage{wrapfig}
 \usepackage{lipsum}
+
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
 
 \title{Spinodal Decomposition}
 \author{}
@@ -31,15 +40,17 @@
 Consider a binary alloy system with a miscibility gap,
 i.e.,
 \begin{figure}[h]
-	\begin{minipage}[l]{4cm}
+	\begin{minipage}[l]{0.3\textwidth}
 		\input{13_1}
 	\end{minipage}%
-	\hfill
-	\begin{minipage}[r]{\textwidth-4cm}
+	\hfil
+	\begin{minipage}[r]{0.6\textwidth}
 		now, consider a transformation which must occur when an alloy
 		with composition $x_B'$ is quenched from temperature $T_H$
 		to a lower temperature $T_L$', i.e.,
-		\ce{$\alpha$ -> $\alpha' + \alpha''$}.
+    \begin{equation*}
+      \ce{$\alpha$ -> $\alpha' + \alpha''$}.
+    \end{equation*}
 	\end{minipage}
 \end{figure}
 
@@ -49,16 +60,19 @@ transformation temperature $T_L$!
 
 I.e.,
 \begin{figure}[h]
-  \begin{minipage}[l]{4cm}
-    \input{13_2}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[r]{\textwidth-4cm}
-    now, consider a transformation which must occur when an alloy
-    with composition $x_B'$ is quenched from temperature $T_H$
-    to a lower temperature $T_L$', i.e.,
-    \ce{$\alpha$ -> $\alpha' + \alpha''$}.
-  \end{minipage}
+	\begin{minipage}[l]{0.3\textwidth}
+		\input{13_2}
+	\end{minipage}%
+	\hfil
+	\begin{minipage}[r]{0.6\textwidth}
+	 In particular,
+   \begin{enumerate}
+     \item If $x_B'$ inside the $G''<0$ region, then small fluctuations
+     in composition $\Rightarrow G \downarrow$ about $x_B'$.
+     $\therefore$ system is unstable and decomposition continues via
+     ``uphill'' diffusion!
+   \end{enumerate}
+	\end{minipage}
 \end{figure}
 
 \end{document}
