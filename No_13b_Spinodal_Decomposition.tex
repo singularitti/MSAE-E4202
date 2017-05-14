@@ -16,6 +16,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
 \usepackage{relsize}
 \tikzset{fontscale/.style = {font=\relscale{#1}}
 }
@@ -106,22 +107,29 @@ $G''(c_0) > 0$.
 If we plot $G'' = 0$ points at various temperature, we obtain the chemical
 spinodal (i.e., line of $G'' = 0$).
 
-\input{13_3}
+\begin{figure}[h]
+  \input{13_3}
+\end{figure}
 
 Inside the spinodal $\rightarrow$ spontaneous decomposition can occur
 via ``uphill'' diffusion process, i.e.,
+
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{.5\linewidth}
 		\centering
 		\input{13_4_a}
 	\end{minipage}%
-	\hfil
+	\hfill
 	\begin{minipage}[b]{.5\linewidth}
 		\centering
-\input{13_4_a}
+		\input{13_4_b}
 	\end{minipage}
 \end{figure}
-
-
+\begin{tikzpicture}[remember picture, overlay, font=\scriptsize]
+  \draw [->,decorate,decoration=snake] (f1) -- (f2);
+  \gettikzxy{(f1)}{\faax}{\faay};
+  \gettikzxy{(f2)}{\fbbx}{\fbby};
+  \draw ($ ({(\faax+\fbbx)/2}, \faay) $) node[anchor=south] {eventually};
+\end{tikzpicture}
 \end{document}
