@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=3, font=\scriptsize]
+	% axis
+	\draw [-{>[scale=2,
+			length=2,
+			width=3]}] (0,0) -- (0,1);
+	\draw (0,0) -- (1,0);
+	\draw [-{>[scale=2,
+			length=2,
+			width=3]}] (1,0) -- (1,1);
+
+	% curve
+	\coordinate (A) at (0.1,0.2);
+	\coordinate (B) at (0.9,0.2);
+	\coordinate (C) at (0.25,0.2);
+	\coordinate (D) at (0.75,0.2);
+	\draw (A) parabola[bend pos=0.5] bend +(0,0.4) (B);
+	\draw[dashed] (C) parabola[bend pos=0.5] bend +(0,0.4) (D);
+
+	% node
+	\draw (0,0) node[anchor=north] {$A$};
+	\draw (1,0) node[anchor=north] {$B$};
+	\draw (-0.1,0.1) node[anchor=west, rotate=90] {temperature};
+	\draw (0.8, -0.3) node (n1) {chemical spinodal};
+	\draw (1.2, 0.3) node (n2) {solvus};
+	\draw (0.65, 0.3) node (ns1) {}; % chemical spinodal
+	\draw (0.75, 0.4) node (ns2) {}; % solvus
+
+	% reference
+	\path[->] (n1.north) edge [out=180, in=0, bend left] (ns1.south east);
+	\path[->] (n2.north) edge [out=60, in=100] (ns2.north east);
+\end{tikzpicture}

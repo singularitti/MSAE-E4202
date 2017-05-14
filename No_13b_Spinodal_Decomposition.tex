@@ -48,9 +48,9 @@ i.e.,
 		now, consider a transformation which must occur when an alloy
 		with composition $x_B'$ is quenched from temperature $T_H$
 		to a lower temperature $T_L$', i.e.,
-    \begin{equation*}
-      \ce{$\alpha$ -> $\alpha' + \alpha''$}.
-    \end{equation*}
+		\begin{equation*}
+			\ce{$\alpha$ -> $\alpha' + \alpha''$}.
+		\end{equation*}
 	\end{minipage}
 \end{figure}
 
@@ -65,14 +65,50 @@ I.e.,
 	\end{minipage}%
 	\hfil
 	\begin{minipage}[r]{0.6\textwidth}
-	 In particular,
-   \begin{enumerate}
-     \item If $x_B'$ inside the $G''<0$ region, then small fluctuations
-     in composition $\Rightarrow G \downarrow$ about $x_B'$.
-     $\therefore$ system is unstable and decomposition continues via
-     ``uphill'' diffusion!
-   \end{enumerate}
+		In particular,
+		\begin{enumerate}
+			\item If $x_B'$ inside the $G''<0$ region, then small fluctuations
+			      in composition $\Rightarrow G \downarrow$ about $x_B'$.
+			      $\therefore$ system is unstable and decomposition continues via
+			      ``uphill'' diffusion!
+		\end{enumerate}
 	\end{minipage}
 \end{figure}
+
+On the other hand,
+\begin{enumerate}
+	\setcounter{enumi}{1}
+	\item If $x_B'$ outside the $G''<0$ region,
+	      small variations in composition $\Rightarrow$ increase in the total
+	      free energy of the system (i.e., $G \uparrow$).
+	      $\therefore$ system is metastable and requires large fluctuations to
+	      develop \ce{$\alpha' + \alpha''$} (i.e., N and G required here).
+\end{enumerate}
+
+Expand $G(c)$ about $c_0$, then
+\begin{align*}
+	G(c_0 + \Delta c) & =
+	G(c_0) + G'(c_0) \cdot \Delta c +
+	G''(c_0) \cdot \frac{ (\Delta c)^2 }{ 2! }
+	+ \cdots,\\
+	G(c_0 - \Delta c) & =
+	G(c_0) - G'(c_0) \cdot \Delta c +
+	G''(c_0) \cdot \frac{ (\Delta c)^2 }{ 2! }
+	+ \cdots.
+\end{align*}
+\begin{equation*}
+	\therefore \Delta G = \frac{ G(c_0 + \Delta c) + G(c_0 - \Delta c) }{ 2 }
+	- G(c_0) = \frac{ G''(c_0) (\Delta c)^2 }{ 2 },
+\end{equation*}
+which is to say that $\Delta G < 0$ if $G''(c_0) < 0$ and $\Delta G > 0$ if
+$G''(c_0) > 0$.
+
+If we plot $G'' = 0$ points at various temperature, we obtain the chemical
+spinodal (i.e., line of $G'' = 0$).
+
+\input{13_3}
+
+Inside the spinodal $\rightarrow$ spontaneous decomposition can occur
+via ``uphill'' diffusion process.
 
 \end{document}
