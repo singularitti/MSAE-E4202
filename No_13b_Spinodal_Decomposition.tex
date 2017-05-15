@@ -33,12 +33,9 @@
 
 \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
 
-\title{Spinodal Decomposition}
-\author{}
-\date{}
-
 \begin{document}
-\maketitle
+\setcounter{section}{12}
+\section{Spinodal Decomposition}
 
 Consider a binary alloy system with a miscibility gap,
 i.e.,
@@ -113,9 +110,9 @@ spinodal (i.e., line of $G'' = 0$).
 	\input{13_3}
 \end{figure}
 
+\newpage
 Inside the spinodal $\rightarrow$ spontaneous decomposition can occur
 via ``uphill'' diffusion process, i.e.,
-
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{.5\linewidth}
@@ -177,7 +174,7 @@ And finally
 \end{equation*}
 Since $G'' < 0$ inside the spinodal, $D < 0 \Rightarrow $ ``up-hill'' diffusion!
 
-\section{Cahn--Hillard theory of spinodal decomposition}
+\subsection{Cahn--Hillard theory of spinodal decomposition}
 Expand the free energy of a system as a Taylor series in $c(x)$,
 i.e.,
 \begin{align*}
@@ -329,8 +326,10 @@ with $E\!:$ Young's modulus, $\nu\!:$ Poisson ratio.
 and $F < 0 \Rightarrow f'' + 2 \mathcal{K} \beta^2 + \frac{ 2\eta^2 E }{ 1-\nu } < 0$.
 And the new critical $\beta$ is
 \begin{equation*}
-  \beta_c = \bigg( \frac{ (1-\nu)f''+2\eta E }{ 2 (\nu-1)\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }}.
+	\beta_c = \bigg( \frac{ (1-\nu)f''+2\eta E }{ 2 (\nu-1)\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }}.
 \end{equation*}
 
-
+\begin{figure}[h]
+	\input{13_6}
+\end{figure}
 \end{document}
