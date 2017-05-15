@@ -31,6 +31,8 @@
 }
 \makeatother
 
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+
 \title{Spinodal Decomposition}
 \author{}
 \date{}
@@ -108,7 +110,7 @@ If we plot $G'' = 0$ points at various temperature, we obtain the chemical
 spinodal (i.e., line of $G'' = 0$).
 
 \begin{figure}[h]
-  \input{13_3}
+	\input{13_3}
 \end{figure}
 
 Inside the spinodal $\rightarrow$ spontaneous decomposition can occur
@@ -127,9 +129,208 @@ via ``uphill'' diffusion process, i.e.,
 	\end{minipage}
 \end{figure}
 \begin{tikzpicture}[remember picture, overlay, font=\scriptsize]
-  \draw [->,decorate,decoration=snake] (f1) -- (f2);
-  \gettikzxy{(f1)}{\faax}{\faay};
-  \gettikzxy{(f2)}{\fbbx}{\fbby};
-  \draw ($ ({(\faax+\fbbx)/2}, \faay) $) node[anchor=south] {eventually};
+	\draw [->,decorate,decoration=snake] (f1) -- (f2);
+	\gettikzxy{(f1)}{\faax}{\faay};
+	\gettikzxy{(f2)}{\fbbx}{\fbby};
+	\draw ($ ({(\faax+\fbbx)/2}, \faay) $) node[anchor=north] {eventually};
 \end{tikzpicture}
+
+\tikz[remember picture, inner sep=0pt] \node (f4) {};
+Initially, no sharp and well defined boundaries. Instead, we have interfacial
+regions which evolve and become sharper as the transformation proceeds.
+
+\begin{tikzpicture}[remember picture,overlay]
+	\draw[->] (f3) edge [out=180, in=160] (f4);
+\end{tikzpicture}
+
+Before review of thermodynamics/up-hill diffusion.
+Recall $\bm{v} = M \bm{F} = - M \nabla \mu$, $\bm{J} = c \bm{v} = - M c \nabla \mu$, where
+$M$ is mobility, $c$ is concentration, $\mu$ is chemical potential.
+In 1D,
+\begin{equation*}
+	J = - M c \frac{ \partial \mu }{ \partial x } = - M c \frac{ \partial \mu }{ \partial c } \frac{ \partial c }{ \partial x } = - D \frac{ \partial c }{ \partial x },
+\end{equation*}
+\begin{equation*}
+	\therefore D = M c \frac{ \partial \mu }{ \partial x },
+\end{equation*}
+where for $A-B$ binary system, $\mu_B = G_{\text{sol}} + (1-x_B)
+	\Big( \frac{ dG_{\text{sol}} }{ dx_B } \Big)_{x_B'}$.
+\begin{equation*}
+	\frac{ d\mu_B }{ dx_B } = \frac{ dG_{\text{sol}} }{ dx_B } + (1-x_B)
+	\frac{ d^2G_{\text{sol}} }{ dx_B^2 } +
+	\Big( - \frac{ dG_{\text{sol}} }{ dx_B } \Big) =
+	(1-x_B)
+	\frac{ d^2G_{\text{sol}} }{ dx_B^2 },
+\end{equation*}
+\begin{equation*}
+	\frac{ d\mu_i }{ dx_i } = (1-x_i) G''
+\end{equation*}
+and
+\begin{equation*}
+	\frac{ d\mu_i }{ dc_i } = (1-x_i) V_m \frac{ d^2G_{\text{sol}} }{ dx_i^2 }
+\end{equation*}
+since $c_i = \frac{ x_i }{ V_m } \Rightarrow V_m dc_i = dx_i$.
+And finally
+\begin{equation*}
+	D_i = M_i c_i V_m (1-x_i) \frac{ d^2G_{\text{sol}} }{ dx_i^2 } \Rightarrow
+	{\text{ sign of }} D = {\text{sign of }} G''.
+\end{equation*}
+Since $G'' < 0$ inside the spinodal, $D < 0 \Rightarrow $ ``up-hill'' diffusion!
+
+\section{Cahn--Hillard theory of spinodal decomposition}
+Expand the free energy of a system as a Taylor series in $c(x)$,
+i.e.,
+\begin{align*}
+	f & = f(c(x)) = f\Big( c, \frac{ dc }{ dx }, \frac{ d^2 c }{ dx^2 }, \ldots \Big) \\
+	  & = f(c) + L \frac{ dc }{ dx } + K_1 \frac{ d^2 c }{ dx^2 } + K_2 \Big(
+	\frac{ dc }{ dx } \Big)^2 + {\text{higher oreder terms}}
+\end{align*}
+Total free energy $F$
+\begin{equation*}
+	F = \int_{\text{vol}} \bigg(
+	f(c) + L \frac{ dc }{ dx } + K_1 \frac{ d^2 c }{ dx^2 } + K_2 \Big(
+	\frac{ dc }{ dx } \Big)^2 \bigg) \, dV,
+\end{equation*}
+here $L = 0$ for crystals with a center of symmetry.
+Integrate $K_1 \frac{ d^2 c }{ dx^2 }$ by parts
+\begin{equation*}
+	\Rightarrow F = \int_V \bigg(
+	f(c) + \mathcal{K} \Big( \frac{ dc }{ dx } \Big)^2
+	\bigg) \, dV,
+\end{equation*}
+where $\mathcal{K} = K_2 - \frac{ dK_1 }{ dc }$ is called ``gradient energy
+coefficient''.
+
+$K > 0$ for phase segregating (i.e., clustering) systems.
+
+Note that $f(c) =$ free energy per unit volume
+of a homogeneous system of composition $c$ (i.e., chemical
+contribution).
+
+Now, for a sinusoidal composition modulation,
+i.e., $c - c_0 = A \cos \beta x$, where $\beta = \frac{ 2\pi }{ \lambda }$,
+where $\lambda$ is modulation wavelength.
+\begin{equation*}
+	\frac{ \Delta F }{ V } = \frac{ A^2 }{ 4 } \bigg(
+	\tikzmark{f''}
+	\frac{ \partial^2 f }{ \partial c^2 } +
+	\tikzmark{Kb}
+	2 \mathcal{K} \beta^2
+	\bigg)
+\end{equation*}
+\begin{figure}[h]
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw ($ (f'') + (-3,-1.5) $) node[anchor=west] (f''e) {chemical term};
+		\path[->] (f''.south) edge [out=220, in=90] (f''e.north);
+
+		\draw ($ (Kb) + (3,-1.5) $) node[anchor=east] (Kbe) {gradient term};
+		\path[->] (Kb.south) edge [out=340, in=90] (Kbe.north);
+	\end{tikzpicture}
+\end{figure}
+
+Now, decomposition can proceed when $\Delta F < 0$,
+\begin{equation*}
+	\therefore {\text{ when }} f'' < - 2 \mathcal{K} \beta^2.
+\end{equation*}
+\begin{equation*}
+	\therefore {\text{ critical }} \beta \Rightarrow \beta_c =
+	\bigg( -\frac{ f'' }{ 2\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }},
+\end{equation*}
+eventually,
+\begin{equation*}
+	{\text{crtical }} \lambda \Rightarrow \lambda_c =
+	\bigg( -\frac{ -8\pi^2\mathcal{K} }{ f'' } \bigg)^{\frac{ 1 }{ 2 }}.
+\end{equation*}
+
+There exists a critical $\lambda_c$ below which $\Delta F > 0$ and
+above which $\Delta F < 0$!
+Also note that $f''$ is a function of composition(deep inside spinodal,
+$f''$ becomes more negative).
+
+For large $\lambda \rightarrow f''$ term dominates and decomposition
+is favored.
+
+For small $\lambda \rightarrow$ gradient term (which opposes the
+decomposition) becomes more important!
+
+Actually, we must also consider the elastic strain energy term which arises
+from the fact that lattice parameter changes as a function of composition,
+i.e.,
+\begin{figure}[h]
+	\begin{minipage}[l]{0.5\textwidth}
+		\input{13_5}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[r]{0.4\textwidth}
+		$\therefore$ molar volume is also a function of composition.
+	\end{minipage}
+\end{figure}
+
+When fluctuation about $c_0$ occurs, one side will want to shrink while
+the other side will want to expand. $\Rightarrow$ Leads to coherency
+energy.
+
+We can define $\phi(c)$ which includes this term as
+\begin{equation*}
+	\phi(c) =
+	\tikzmark{fcx}
+	f\big(c(x)\big) +
+	\bigg( \frac{ \eta^2 E }{ 1-\nu } \bigg) (c-c_0)^2,
+\end{equation*}
+\begin{figure}[h]
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw ($ (fcx) + (0,-1.5) $) node[anchor=south] (fct) {
+			What we treated previously.
+		};
+		\path[->] (fcx.south) edge [out=180, in=180] (fct.west);
+	\end{tikzpicture}
+\end{figure}
+
+\noindent
+where $\eta = \frac{ 1 }{ a_0 } \Big( \frac{ \partial a }{ \partial c } \Big)$,
+with $E\!:$ Young's modulus, $\nu\!:$ Poisson ratio.
+
+\begin{equation*}
+	\tikzmark{FV}
+	\frac{ \Delta F }{ V } = \frac{ A^2 }{ 4 } \bigg(
+	\tikzmark{f}
+	f'' +
+	\tikzmark{Kb2}
+	2 \mathcal{K} \beta^2 +
+	\tikzmark{etaE}
+	\frac{ 2\eta^2 E }{ 1-\nu }
+	\bigg),
+\end{equation*}
+\begin{figure}[h]
+	\begin{tikzpicture}[remember picture, overlay]
+		% frame
+		\draw (0,0) rectangle (18,2);
+
+		% formula
+		\draw ($ (FV)-(3,1) $) node[anchor=east, fill=white] (FVt) {
+			total free energy
+		};
+		\path[->] (FV.south) edge [out=220, in=10] (FVt.east);
+
+		\draw ($ (f)-(0,1.5) $) node[anchor=east, fill=white] (ft) {chemical energy};
+		\path[->] (f.south) edge [out=250, in=30] (ft.east);
+
+		\draw ($ (Kb2)-(-2,1.5) $) node[anchor=north, fill=white] (Kb2e) {gradient energy};
+		\path[->] (Kb2.south) edge [out=270, in=90] (Kb2e.north);
+
+		% text
+		\draw (0.5,2) node[anchor=west, fill=white] (we) {$\therefore$
+			We now have};
+
+		\draw ($ (etaE)-(-4,1.5) $) node[anchor=south, fill=white] (etaEe) {elastic strain energy};
+		\path[->] (etaE.south) edge [out=330, in=170] (etaEe.north);
+	\end{tikzpicture}
+\end{figure}
+and $F < 0 \Rightarrow f'' + 2 \mathcal{K} \beta^2 + \frac{ 2\eta^2 E }{ 1-\nu } < 0$.
+And the new critical $\beta$ is
+\begin{equation*}
+  \beta_c = \bigg( \frac{ (1-\nu)f''+2\eta E }{ 2 (\nu-1)\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }}.
+\end{equation*}
+
+
 \end{document}
