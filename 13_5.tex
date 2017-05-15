@@ -1,0 +1,19 @@
+\begin{tikzpicture}[xscale=5, yscale=3, font=\scriptsize]
+	% axis
+	\draw [-{>[scale=2,
+			length=2,
+			width=3]}] (0,0) -- (0,1);
+	\draw [-{>[scale=2,
+			length=2,
+			width=3]}] (0,0) -- (1,0);
+
+	% line
+	\coordinate (c0) at (0.5,0);
+	\draw[dashed] (c0) -- ($ (c0)+(0,0.8) $);
+	\draw (0.2,0.3) -- (0.7,0.8);
+
+	% node
+	\draw (c0) node[anchor=north] {$c_0$};
+	\draw (1,0) node[anchor=west] {composition};
+	\draw (-0.1,0.1) node[anchor=west, rotate=90] {lattice parameter};
+\end{tikzpicture}
