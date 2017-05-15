@@ -40,18 +40,18 @@
 Consider a binary alloy system with a miscibility gap,
 i.e.,
 \begin{figure}[h]
-	\begin{minipage}[l]{0.3\textwidth}
-		\input{13_1}
-	\end{minipage}%
-	\hfil
-	\begin{minipage}[r]{0.6\textwidth}
-		now, consider a transformation which must occur when an alloy
-		with composition $x_B'$ is quenched from temperature $T_H$
-		to a lower temperature $T_L$', i.e.,
-		\begin{equation*}
-			\ce{$\alpha$ -> $\alpha' + \alpha''$}.
-		\end{equation*}
-	\end{minipage}
+ \begin{minipage}[l]{0.3\textwidth}
+  \input{13_1}
+ \end{minipage}%
+ \hfil
+ \begin{minipage}[r]{0.6\textwidth}
+  now, consider a transformation which must occur when an alloy
+  with composition $x_B'$ is quenched from temperature $T_H$
+  to a lower temperature $T_L$', i.e.,
+  \begin{equation*}
+   \ce{$\alpha$ -> $\alpha' + \alpha''$}.
+  \end{equation*}
+ \end{minipage}
 \end{figure}
 
 In order to properly deal with the transformation, we need to analyze,
@@ -60,45 +60,45 @@ transformation temperature $T_L$!
 
 I.e.,
 \begin{figure}[h]
-	\begin{minipage}[l]{0.3\textwidth}
-		\input{13_2}
-	\end{minipage}%
-	\hfil
-	\begin{minipage}[r]{0.6\textwidth}
-		In particular,
-		\begin{enumerate}
-			\item If $x_B'$ inside the $G''<0$ region, then small fluctuations
-			      in composition $\Rightarrow G \downarrow$ about $x_B'$.
-			      $\therefore$ system is unstable and decomposition continues via
-			      ``uphill'' diffusion!
-		\end{enumerate}
-	\end{minipage}
+ \begin{minipage}[l]{0.3\textwidth}
+  \input{13_2}
+ \end{minipage}%
+ \hfil
+ \begin{minipage}[r]{0.6\textwidth}
+  In particular,
+  \begin{enumerate}
+   \item If $x_B'$ inside the $G''<0$ region, then small fluctuations
+         in composition $\Rightarrow G \downarrow$ about $x_B'$.
+         $\therefore$ system is unstable and decomposition continues via
+         ``uphill'' diffusion!
+  \end{enumerate}
+ \end{minipage}
 \end{figure}
 
 On the other hand,
 \begin{enumerate}
-	\setcounter{enumi}{1}
-	\item If $x_B'$ outside the $G''<0$ region,
-	      small variations in composition $\Rightarrow$ increase in the total
-	      free energy of the system (i.e., $G \uparrow$).
-	      $\therefore$ system is metastable and requires large fluctuations to
-	      develop \ce{$\alpha' + \alpha''$} (i.e., N and G required here).
+ \setcounter{enumi}{1}
+ \item If $x_B'$ outside the $G''<0$ region,
+       small variations in composition $\Rightarrow$ increase in the total
+       free energy of the system (i.e., $G \uparrow$).
+       $\therefore$ system is metastable and requires large fluctuations to
+       develop \ce{$\alpha' + \alpha''$} (i.e., N and G required here).
 \end{enumerate}
 
 Expand $G(c)$ about $c_0$, then
 \begin{align*}
-	G(c_0 + \Delta c) & =
-	G(c_0) + G'(c_0) \cdot \Delta c +
-	G''(c_0) \cdot \frac{ (\Delta c)^2 }{ 2! }
-	+ \cdots,\\
-	G(c_0 - \Delta c) & =
-	G(c_0) - G'(c_0) \cdot \Delta c +
-	G''(c_0) \cdot \frac{ (\Delta c)^2 }{ 2! }
-	+ \cdots.
+ G(c_0 + \Delta c) & =
+ G(c_0) + G'(c_0) \cdot \Delta c +
+ G''(c_0) \cdot \frac{ (\Delta c)^2 }{ 2! }
+ + \cdots,\\
+ G(c_0 - \Delta c) & =
+ G(c_0) - G'(c_0) \cdot \Delta c +
+ G''(c_0) \cdot \frac{ (\Delta c)^2 }{ 2! }
+ + \cdots.
 \end{align*}
 \begin{equation*}
-	\therefore \Delta G = \frac{ G(c_0 + \Delta c) + G(c_0 - \Delta c) }{ 2 }
-	- G(c_0) = \frac{ G''(c_0) (\Delta c)^2 }{ 2 },
+ \therefore \Delta G = \frac{ G(c_0 + \Delta c) + G(c_0 - \Delta c) }{ 2 }
+ - G(c_0) = \frac{ G''(c_0) (\Delta c)^2 }{ 2 },
 \end{equation*}
 which is to say that $\Delta G < 0$ if $G''(c_0) < 0$ and $\Delta G > 0$ if
 $G''(c_0) > 0$.
@@ -107,29 +107,29 @@ If we plot $G'' = 0$ points at various temperature, we obtain the chemical
 spinodal (i.e., line of $G'' = 0$).
 
 \begin{figure}[h]
-	\input{13_3}
+ \input{13_3}
 \end{figure}
 
 \newpage
 Inside the spinodal $\rightarrow$ spontaneous decomposition can occur
 via ``uphill'' diffusion process, i.e.,
 \begin{figure}[h]
-	\centering
-	\begin{minipage}[b]{.5\linewidth}
-		\centering
-		\input{13_4_a}
-	\end{minipage}%
-	\hfill
-	\begin{minipage}[b]{.5\linewidth}
-		\centering
-		\input{13_4_b}
-	\end{minipage}
+ \centering
+ \begin{minipage}[b]{.5\linewidth}
+  \centering
+  \input{13_4_a}
+ \end{minipage}%
+ \hfill
+ \begin{minipage}[b]{.5\linewidth}
+  \centering
+  \input{13_4_b}
+ \end{minipage}
 \end{figure}
 \begin{tikzpicture}[remember picture, overlay, font=\scriptsize]
-	\draw [->,decorate,decoration=snake] (f1) -- (f2);
-	\gettikzxy{(f1)}{\faax}{\faay};
-	\gettikzxy{(f2)}{\fbbx}{\fbby};
-	\draw ($ ({(\faax+\fbbx)/2}, \faay) $) node[anchor=north] {eventually};
+ \draw [->,decorate,decoration=snake] (f1) -- (f2);
+ \gettikzxy{(f1)}{\faax}{\faay};
+ \gettikzxy{(f2)}{\fbbx}{\fbby};
+ \draw ($ ({(\faax+\fbbx)/2}, \faay) $) node[anchor=north] {eventually};
 \end{tikzpicture}
 
 \tikz[remember picture, inner sep=0pt] \node (f4) {};
@@ -137,7 +137,7 @@ Initially, no sharp and well defined boundaries. Instead, we have interfacial
 regions which evolve and become sharper as the transformation proceeds.
 
 \begin{tikzpicture}[remember picture,overlay]
-	\draw[->] (f3) edge [out=180, in=160] (f4);
+ \draw[->] (f3) edge [out=180, in=160] (f4);
 \end{tikzpicture}
 
 Before review of thermodynamics/up-hill diffusion.
@@ -145,55 +145,55 @@ Recall $\bm{v} = M \bm{F} = - M \nabla \mu$, $\bm{J} = c \bm{v} = - M c \nabla \
 $M$ is mobility, $c$ is concentration, $\mu$ is chemical potential.
 In 1D,
 \begin{equation*}
-	J = - M c \frac{ \partial \mu }{ \partial x } = - M c \frac{ \partial \mu }{ \partial c } \frac{ \partial c }{ \partial x } = - D \frac{ \partial c }{ \partial x },
+ J = - M c \frac{ \partial \mu }{ \partial x } = - M c \frac{ \partial \mu }{ \partial c } \frac{ \partial c }{ \partial x } = - D \frac{ \partial c }{ \partial x },
 \end{equation*}
 \begin{equation*}
-	\therefore D = M c \frac{ \partial \mu }{ \partial x },
+ \therefore D = M c \frac{ \partial \mu }{ \partial x },
 \end{equation*}
 where for $A-B$ binary system, $\mu_B = G_{\text{sol}} + (1-x_B)
-	\Big( \frac{ dG_{\text{sol}} }{ dx_B } \Big)_{x_B'}$.
+\Big( \frac{ dG_{\text{sol}} }{ dx_B } \Big)_{x_B'}$.
 \begin{equation*}
-	\frac{ d\mu_B }{ dx_B } = \frac{ dG_{\text{sol}} }{ dx_B } + (1-x_B)
-	\frac{ d^2G_{\text{sol}} }{ dx_B^2 } +
-	\Big( - \frac{ dG_{\text{sol}} }{ dx_B } \Big) =
-	(1-x_B)
-	\frac{ d^2G_{\text{sol}} }{ dx_B^2 },
+ \frac{ d\mu_B }{ dx_B } = \frac{ dG_{\text{sol}} }{ dx_B } + (1-x_B)
+ \frac{ d^2G_{\text{sol}} }{ dx_B^2 } +
+ \Big( - \frac{ dG_{\text{sol}} }{ dx_B } \Big) =
+ (1-x_B)
+ \frac{ d^2G_{\text{sol}} }{ dx_B^2 },
 \end{equation*}
 \begin{equation*}
-	\frac{ d\mu_i }{ dx_i } = (1-x_i) G''
+ \frac{ d\mu_i }{ dx_i } = (1-x_i) G''
 \end{equation*}
 and
 \begin{equation*}
-	\frac{ d\mu_i }{ dc_i } = (1-x_i) V_m \frac{ d^2G_{\text{sol}} }{ dx_i^2 }
+ \frac{ d\mu_i }{ dc_i } = (1-x_i) V_m \frac{ d^2G_{\text{sol}} }{ dx_i^2 }
 \end{equation*}
 since $c_i = \frac{ x_i }{ V_m } \Rightarrow V_m dc_i = dx_i$.
 And finally
 \begin{equation*}
-	D_i = M_i c_i V_m (1-x_i) \frac{ d^2G_{\text{sol}} }{ dx_i^2 } \Rightarrow
-	{\text{ sign of }} D = {\text{sign of }} G''.
+ D_i = M_i c_i V_m (1-x_i) \frac{ d^2G_{\text{sol}} }{ dx_i^2 } \Rightarrow
+ {\text{ sign of }} D = {\text{sign of }} G''.
 \end{equation*}
 Since $G'' < 0$ inside the spinodal, $D < 0 \Rightarrow $ ``up-hill'' diffusion!
 
-\subsection{Cahn--Hillard theory of spinodal decomposition}
+\subsection*{Cahn--Hillard theory of spinodal decomposition}
 Expand the free energy of a system as a Taylor series in $c(x)$,
 i.e.,
 \begin{align*}
-	f & = f(c(x)) = f\Big( c, \frac{ dc }{ dx }, \frac{ d^2 c }{ dx^2 }, \ldots \Big) \\
-	  & = f(c) + L \frac{ dc }{ dx } + K_1 \frac{ d^2 c }{ dx^2 } + K_2 \Big(
-	\frac{ dc }{ dx } \Big)^2 + {\text{higher oreder terms}}
+ f & = f(c(x)) = f\Big( c, \frac{ dc }{ dx }, \frac{ d^2 c }{ dx^2 }, \ldots \Big) \\
+   & = f(c) + L \frac{ dc }{ dx } + K_1 \frac{ d^2 c }{ dx^2 } + K_2 \Big(
+ \frac{ dc }{ dx } \Big)^2 + {\text{higher oreder terms}}
 \end{align*}
 Total free energy $F$
 \begin{equation*}
-	F = \int_{\text{vol}} \bigg(
-	f(c) + L \frac{ dc }{ dx } + K_1 \frac{ d^2 c }{ dx^2 } + K_2 \Big(
-	\frac{ dc }{ dx } \Big)^2 \bigg) \, dV,
+ F = \int_{\text{vol}} \bigg(
+ f(c) + L \frac{ dc }{ dx } + K_1 \frac{ d^2 c }{ dx^2 } + K_2 \Big(
+ \frac{ dc }{ dx } \Big)^2 \bigg) \, dV,
 \end{equation*}
 here $L = 0$ for crystals with a center of symmetry.
 Integrate $K_1 \frac{ d^2 c }{ dx^2 }$ by parts
 \begin{equation*}
-	\Rightarrow F = \int_V \bigg(
-	f(c) + \mathcal{K} \Big( \frac{ dc }{ dx } \Big)^2
-	\bigg) \, dV,
+ \Rightarrow F = \int_V \bigg(
+ f(c) + \mathcal{K} \Big( \frac{ dc }{ dx } \Big)^2
+ \bigg) \, dV,
 \end{equation*}
 where $\mathcal{K} = K_2 - \frac{ dK_1 }{ dc }$ is called ``gradient energy
 coefficient''.
@@ -208,35 +208,35 @@ Now, for a sinusoidal composition modulation,
 i.e., $c - c_0 = A \cos \beta x$, where $\beta = \frac{ 2\pi }{ \lambda }$,
 where $\lambda$ is modulation wavelength.
 \begin{equation*}
-	\frac{ \Delta F }{ V } = \frac{ A^2 }{ 4 } \bigg(
-	\tikzmark{f''}
-	\frac{ \partial^2 f }{ \partial c^2 } +
-	\tikzmark{Kb}
-	2 \mathcal{K} \beta^2
-	\bigg)
+ \frac{ \Delta F }{ V } = \frac{ A^2 }{ 4 } \bigg(
+ \tikzmark{f''}
+ \frac{ \partial^2 f }{ \partial c^2 } +
+ \tikzmark{Kb}
+ 2 \mathcal{K} \beta^2
+ \bigg)
 \end{equation*}
 \begin{figure}[h]
-	\begin{tikzpicture}[remember picture, overlay]
-		\draw ($ (f'') + (-3,-1.5) $) node[anchor=west] (f''e) {chemical term};
-		\path[->] (f''.south) edge [out=220, in=90] (f''e.north);
+ \begin{tikzpicture}[remember picture, overlay]
+  \draw ($ (f'') + (-3,-1.5) $) node[anchor=west] (f''e) {chemical term};
+  \path[->] (f''.south) edge [out=220, in=90] (f''e.north);
 
-		\draw ($ (Kb) + (3,-1.5) $) node[anchor=east] (Kbe) {gradient term};
-		\path[->] (Kb.south) edge [out=340, in=90] (Kbe.north);
-	\end{tikzpicture}
+  \draw ($ (Kb) + (3,-1.5) $) node[anchor=east] (Kbe) {gradient term};
+  \path[->] (Kb.south) edge [out=340, in=90] (Kbe.north);
+ \end{tikzpicture}
 \end{figure}
 
 Now, decomposition can proceed when $\Delta F < 0$,
 \begin{equation*}
-	\therefore {\text{ when }} f'' < - 2 \mathcal{K} \beta^2.
+ \therefore {\text{ when }} f'' < - 2 \mathcal{K} \beta^2.
 \end{equation*}
 \begin{equation*}
-	\therefore {\text{ critical }} \beta \Rightarrow \beta_c =
-	\bigg( -\frac{ f'' }{ 2\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }},
+ \therefore {\text{ critical }} \beta \Rightarrow \beta_c =
+ \bigg( -\frac{ f'' }{ 2\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }},
 \end{equation*}
 eventually,
 \begin{equation*}
-	{\text{crtical }} \lambda \Rightarrow \lambda_c =
-	\bigg( -\frac{ -8\pi^2\mathcal{K} }{ f'' } \bigg)^{\frac{ 1 }{ 2 }}.
+ {\text{crtical }} \lambda \Rightarrow \lambda_c =
+ \bigg( -\frac{ -8\pi^2\mathcal{K} }{ f'' } \bigg)^{\frac{ 1 }{ 2 }}.
 \end{equation*}
 
 There exists a critical $\lambda_c$ below which $\Delta F > 0$ and
@@ -254,13 +254,13 @@ Actually, we must also consider the elastic strain energy term which arises
 from the fact that lattice parameter changes as a function of composition,
 i.e.,
 \begin{figure}[h]
-	\begin{minipage}[l]{0.5\textwidth}
-		\input{13_5}
-	\end{minipage}%
-	\hfill
-	\begin{minipage}[r]{0.4\textwidth}
-		$\therefore$ molar volume is also a function of composition.
-	\end{minipage}
+ \begin{minipage}[l]{0.5\textwidth}
+  \input{13_5}
+ \end{minipage}%
+ \hfill
+ \begin{minipage}[r]{0.4\textwidth}
+  $\therefore$ molar volume is also a function of composition.
+ \end{minipage}
 \end{figure}
 
 When fluctuation about $c_0$ occurs, one side will want to shrink while
@@ -269,18 +269,18 @@ energy.
 
 We can define $\phi(c)$ which includes this term as
 \begin{equation*}
-	\phi(c) =
-	\tikzmark{fcx}
-	f\big(c(x)\big) +
-	\bigg( \frac{ \eta^2 E }{ 1-\nu } \bigg) (c-c_0)^2,
+ \phi(c) =
+ \tikzmark{fcx}
+ f\big(c(x)\big) +
+ \bigg( \frac{ \eta^2 E }{ 1-\nu } \bigg) (c-c_0)^2,
 \end{equation*}
 \begin{figure}[h]
-	\begin{tikzpicture}[remember picture, overlay]
-		\draw ($ (fcx) + (0,-1.5) $) node[anchor=south] (fct) {
-			What we treated previously.
-		};
-		\path[->] (fcx.south) edge [out=180, in=180] (fct.west);
-	\end{tikzpicture}
+ \begin{tikzpicture}[remember picture, overlay]
+  \draw ($ (fcx) + (0,-1.5) $) node[anchor=south] (fct) {
+   What we treated previously.
+  };
+  \path[->] (fcx.south) edge [out=180, in=180] (fct.west);
+ \end{tikzpicture}
 \end{figure}
 
 \noindent
@@ -293,7 +293,7 @@ with $E\!:$ Young's modulus, $\nu\!:$ Poisson ratio.
 and $F < 0 \Rightarrow f'' + 2 \mathcal{K} \beta^2 + \frac{ 2\eta^2 E }{ 1-\nu } < 0$.
 And the new critical $\beta$ is
 \begin{equation*}
-	\beta_c = \bigg( \frac{ (1-\nu)f''+2\eta E }{ 2 (\nu-1)\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }}.
+ \beta_c = \bigg( \frac{ (1-\nu)f''+2\eta E }{ 2 (\nu-1)\mathcal{K} } \bigg)^{\frac{ 1 }{ 2 }}.
 \end{equation*}
 
 \vspace{\baselineskip}

@@ -1,3 +1,3 @@
 # Readme
 
-Please download or clone whole package and compile No_13b_Spinodal_Decomposition.tex by XeLaTeX.
+Please download or clone whole folder and compile "No_*.tex" by XeLaTeX.
