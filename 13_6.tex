@@ -1,67 +1,36 @@
-\begin{tikzpicture}[scale=4, font=\scriptsize]
-	% axis
-	\draw [-{>[scale=2,
-			length=2,
-			width=3]}] (0,0) -- (0,1);
-	\draw (0,0) -- (1,0);
-	\draw [-{>[scale=2,
-			length=2,
-			width=3]}] (1,0) -- (1,1);
+\begin{equation*}
+	\tikzmark{FV}
+	\frac{ \Delta F }{ V } = \frac{ A^2 }{ 4 } \bigg(
+	\tikzmark{f}
+	f'' +
+	\tikzmark{Kb2}
+	2 \mathcal{K} \beta^2 +
+	\tikzmark{etaE}
+	\frac{ 2\eta^2 E }{ 1-\nu }
+	\bigg),
+\end{equation*}
+\begin{figure}[h]
+	\begin{tikzpicture}[remember picture, overlay]
+		% frame
+		\draw (0,0) rectangle (18,2);
 
-	% point 
-	\coordinate (TL) at (0,0.6);
-	\coordinate (TH) at ($ (0, { 0.6 * 1.2}) $);
-	\gettikzxy{(TH)}{\thx}{\thy};
-	\gettikzxy{(TL)}{\tlx}{\tly};
-	\draw (TL) node[anchor=east] {$T_c$};
-	\draw (TH) node[anchor=east] {$T_c$};
+		% formula
+		\draw ($ (FV)-(3,1) $) node[anchor=east, fill=white] (FVt) {
+			total free energy
+		};
+		\path[->] (FV.south) edge [out=220, in=10] (FVt.east);
 
-	% curve 1
-	\begin{scope}[xscale=0.8, xshift=0.125cm]
-		\coordinate (A) at (0.1,0.2);
-		\coordinate (B) at (0.9,0.2);
-		\coordinate (C) at (0.25,0.2);
-		\coordinate (D) at (0.75,0.2);
-		\draw (A) parabola[bend pos=0.5] bend +(0,0.4) (B);
-		\draw[dashed] (C) parabola[bend pos=0.5] bend +(0,0.4) (D);
-	\end{scope}
+		\draw ($ (f)-(0,1.5) $) node[anchor=east, fill=white] (ft) {chemical energy};
+		\path[->] (f.south) edge [out=250, in=30] (ft.east);
 
-	% curve 2
-	\begin{scope}[yscale=1.2]
-		\coordinate (A) at (0.1,0.2);
-		\coordinate (B) at (0.9,0.2);
-		\coordinate (C) at (0.25,0.2);
-		\coordinate (D) at (0.75,0.2);
-		\draw (A) parabola[bend pos=0.5] bend +(0,0.4) (B);
-		\draw[dashed] (C) parabola[bend pos=0.5] bend +(0,0.4) (D);
-	\end{scope}
+		\draw ($ (Kb2)-(-2,1.5) $) node[anchor=north, fill=white] (Kb2e) {gradient energy};
+		\path[->] (Kb2.south) edge [out=270, in=90] (Kb2e.north);
 
-	% line
-	\draw[dashed] (TH) -- (0.5, \thy);
-	\draw[dashed] (TL) -- (0.5,\tly);
+		% text
+		\draw (0.5,2) node[anchor=west, fill=white] (we) {$\therefore$
+			We now have};
 
-	% node
-	\draw (0,0) node[anchor=north] {$A$};
-	\draw (1,0) node[anchor=north] {$B$};
-	\draw (-0.1,0.1) node[anchor=west, rotate=90] {temperature};
-	\draw (0.5, 0) node[anchor=north] {composition};
-	\draw (0.25, 0.5) node (nc1) {}; % solvus
-	\draw (0.3,0.4) node (nc2) {}; % incoherent
-	\draw (0.66, 0.3) node (ns1) {}; % chemical spinodal
-	\draw (0.76, 0.3) node (ns2) {}; % solvus
-	\draw (0.5,0.8) node (j1) {}; % join point 1
-	\draw (0.9, 0.5) node (j2) {}; % join point 2
-	\draw (2, 0.8) node (tx1) {incoherent (or chemical) solvus and spinodal};
-	\draw (2, 0.5) node (tx2) {coherent solvus and spinodal};
-	\draw (3,0.3) node (tx3) {$T_c|_{\text{coherent}} < T_c |_{\text{chemical}}$};
-
-	% reference
-	\path (nc1.north) edge [out=180, in=0, bend left] (j1.west);
-	\path (nc2.north) edge [out=70, in=180, bend left] (j1.west);
-	\path[->] (j1.west) edge [out=70, in=180, bend left] (tx1.west);
-
-	\path (ns1.north) edge [out=180, in=200, bend left] (j2.west);
-	\path (ns2.north) edge [out=50, in=180, bend left] (j2.west);
-	\path[->] (j2.west) edge [out=10, in=180, bend left] (tx2.west);
-	\path[->] (tx2.east) edge [out=350, in=180, bend left] (tx3.west);
-\end{tikzpicture}
+		\draw ($ (etaE)-(-4,1.5) $) node[anchor=south, fill=white] (etaEe) {elastic strain energy};
+		\path[->] (etaE.south) edge [out=330, in=170] (etaEe.north);
+	\end{tikzpicture}
+\end{figure}

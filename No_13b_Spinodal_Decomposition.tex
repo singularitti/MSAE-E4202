@@ -287,42 +287,7 @@ We can define $\phi(c)$ which includes this term as
 where $\eta = \frac{ 1 }{ a_0 } \Big( \frac{ \partial a }{ \partial c } \Big)$,
 with $E\!:$ Young's modulus, $\nu\!:$ Poisson ratio.
 
-\begin{equation*}
-	\tikzmark{FV}
-	\frac{ \Delta F }{ V } = \frac{ A^2 }{ 4 } \bigg(
-	\tikzmark{f}
-	f'' +
-	\tikzmark{Kb2}
-	2 \mathcal{K} \beta^2 +
-	\tikzmark{etaE}
-	\frac{ 2\eta^2 E }{ 1-\nu }
-	\bigg),
-\end{equation*}
-\begin{figure}[h]
-	\begin{tikzpicture}[remember picture, overlay]
-		% frame
-		\draw (0,0) rectangle (18,2);
-
-		% formula
-		\draw ($ (FV)-(3,1) $) node[anchor=east, fill=white] (FVt) {
-			total free energy
-		};
-		\path[->] (FV.south) edge [out=220, in=10] (FVt.east);
-
-		\draw ($ (f)-(0,1.5) $) node[anchor=east, fill=white] (ft) {chemical energy};
-		\path[->] (f.south) edge [out=250, in=30] (ft.east);
-
-		\draw ($ (Kb2)-(-2,1.5) $) node[anchor=north, fill=white] (Kb2e) {gradient energy};
-		\path[->] (Kb2.south) edge [out=270, in=90] (Kb2e.north);
-
-		% text
-		\draw (0.5,2) node[anchor=west, fill=white] (we) {$\therefore$
-			We now have};
-
-		\draw ($ (etaE)-(-4,1.5) $) node[anchor=south, fill=white] (etaEe) {elastic strain energy};
-		\path[->] (etaE.south) edge [out=330, in=170] (etaEe.north);
-	\end{tikzpicture}
-\end{figure}
+\input{13_6}
 and $F < 0 \Rightarrow f'' + 2 \mathcal{K} \beta^2 + \frac{ 2\eta^2 E }{ 1-\nu } < 0$.
 And the new critical $\beta$ is
 \begin{equation*}
@@ -330,6 +295,6 @@ And the new critical $\beta$ is
 \end{equation*}
 
 \begin{figure}[h]
-	\input{13_6}
+	\input{13_7}
 \end{figure}
 \end{document}
