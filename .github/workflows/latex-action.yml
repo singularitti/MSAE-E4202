@@ -9,7 +9,7 @@ jobs:
         with:
           submodules: recursive
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: Note 13/main.tex
           latexmk_use_lualatex: true
